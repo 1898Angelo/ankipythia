@@ -3,8 +3,6 @@ from .widgets.topframe import TopFrame
 from .widgets.bottomframe import BottomFrame
 from .widgets.middleframe import MiddleFrame
 from .api import API
-from .lib.utils import truncate_lines
-from .lib.utils import Generator
 
 class Anki(ctk.CTk, API):
     def __init__(self):
@@ -37,4 +35,4 @@ class Anki(ctk.CTk, API):
 
     # Utils.
     from .lib.utils import truncate_lines
-    from itertools import chain
+    from .lib.utils import Generator
