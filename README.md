@@ -10,7 +10,8 @@ Barebones flashcard app built on Tkinter and inspired by the official Anki app -
 - Cross-platform (Any OS that can run Python 3).
 - SQLite is used as the database to store decks and cards locally.
 
-![Animation](https://github.com/1898Angelo/ankipythia/assets/123282394/529c4f49-51f4-4ce8-99dd-d450e36e5c35)
+![Animation](https://github.com/1898Angelo/ankipythia/assets/123282394/a594b86a-a496-49e3-9dce-532fc7d5909f)
+
 
 ## DEPENDENCIES
 ```
