@@ -29,19 +29,19 @@ platformdirs>=2.6.2
 Download the executable from the releases section and run it! or if you prefer to run it from the source code, follow the steps below.
 
 ### ... RUN IT ON OTHER OPERATING SYSTEMS 
-After installing the Python dependencies and SQLite binaries, clone or download the repository as a zip file; from the terminal, move into the directory and execute main.py
+After installing the Python dependencies and SQLite binaries, clone or download the repository as a zip file; from the terminal, move into the directory and execute main.py.
 ```
 (if cloning repo with git) git clone https://github.com/1898Angelo/ankipythia.git
 cd ankipythia
 main.py
 ```
 ### ... INSTALL PYTHON DEPENDENCIES
-From the terminal set the cwd to the directory where you downloaded (cloned) the repo and run
+From the terminal set the cwd to the directory where you downloaded (cloned) the repo and run:
 ```
 pip install -r requirements.txt
 ```
 ### ... DELETE DATABASE
-Your decks and their respective cards are stored within the current user's data directory.
+Your decks and their respective cards are stored within the current user's data directory:
 - On windows
 ```
 C:\Users\YourUserName\AppData\Local\Ankipythia
