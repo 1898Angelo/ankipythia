@@ -6,7 +6,7 @@
 Barebones flashcard app built on Tkinter and inspired by the official Anki app - https://apps.ankiweb.net/
 
 - Create decks and add cards!
-- Lightweight (The windows executable is only 8Mb!).
+- Lightweight (The windows executable is only 8MB).
 - Cross-platform (Any OS that can run Python 3).
 - SQLite is used as the database to store decks and cards locally.
 
