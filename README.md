@@ -25,6 +25,33 @@ platformdirs>=2.6.2
 - On Linux, you might have to download Tkinter library packages separately.
 >https://tecadmin.net/how-to-install-python-tkinter-on-linux/
 
+## DATABASE STRUCTURE
+The database follows a very simple star schema to avoid redundancies in the database:
+- A dimension table _card_ is used to store the "front" and "back" of each card input into the program.
+  - Furthermore, the table has a foreign key column _deck_id_ to relate multiple rows (cards) to each observation (deck name) in the fact table.
+- A fact table _card_lookup_ is used to store the _deck names_ related to those cards.
+
+**DIMENSION TABLE**
+```
+CREATE TABLE "card" (
+	"timestamp"	INTEGER NOT NULL, # To add timeseries analysis (and other functionalities) in the future.
+	"deck_id"	INTEGER NOT NULL, # Foreign key column to avoid redundancies.
+	"id"	INTEGER NOT NULL UNIQUE, 
+	"front"	TEXT NOT NULL, # Front of each card.
+	"back"	TEXT NOT NULL, # Back of each card.
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("deck_id") REFERENCES "deck_lookup"("id")
+);
+```
+**FACT TABLE**
+```
+CREATE TABLE "deck_lookup" (
+	"id"	INTEGER NOT NULL UNIQUE, # Primary key column referenced by card.
+	"deck_name"	TEXT NOT NULL UNIQUE, # Deck names are stored here.
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+```
+
 ## HOW TO
 ### ... RUN IT ON WINDOWS
 Download the executable from the releases section and run it! or if you prefer to run it from the source code, follow the steps below.
@@ -42,7 +69,7 @@ From the terminal set the cwd to the directory where you downloaded (cloned) the
 pip install -r requirements.txt
 ```
 ### ... DELETE DATABASE
-Your decks and their respective cards are stored within the current user's data directory:
+Your decks and their respective cards are stored within a database in the current user's data directory:
 - On windows
 ```
 C:\Users\YourUserName\AppData\Local\Ankipythia
