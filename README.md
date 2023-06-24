@@ -27,6 +27,7 @@ platformdirs>=2.6.2
 ## HOW TO
 ### ... RUN IT ON WINDOWS
 Download the executable from the releases section and run it! or if you prefer to run it from the source code, follow the steps below.
+
 ### ... RUN IT ON OTHER OPERATING SYSTEMS 
 After installing the Python dependencies and SQLite binaries, clone or download the repository as a zip file; from the terminal, move into the directory and execute main.py
 ```
