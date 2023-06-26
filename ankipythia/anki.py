@@ -23,7 +23,7 @@ class Anki(ctk.CTk, API):
 
         self.init_values()
 
-    # Main methods.
+    # Main view and controller methods
     from ._anki._methods import next_card
     from ._anki._methods import turn_card
     from ._anki._methods import init_values
@@ -33,6 +33,6 @@ class Anki(ctk.CTk, API):
     from ._anki._methods import current_deck
     from ._anki._methods import no_cards
 
-    # Utils.
+    # Utils
     from .lib.utils import truncate_lines
     from .lib.utils import Generator

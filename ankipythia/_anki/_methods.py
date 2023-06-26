@@ -50,7 +50,7 @@ def deck_cards(self):
     WHERE deck_name = (?)
     """.strip()
     parameters = (self.current_deck,)
-    return Generator(self.query(query, parameters).fetchall())
+    return Generator(self.query(query, parameters))
 
 def no_cards(self):
     self.MF.set_front_value("Add new cards!")

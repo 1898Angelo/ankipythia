@@ -13,7 +13,7 @@ class API(object):
     def __init__(self, *args, **kwargs):
         pass
         
-    def query(self, query, parameters=None) -> sqlite3.Cursor:
+    def query(self, query, parameters=None) -> tuple:
         #print(f"Query: {query}\nParameters: {parameters}")
         if parameters is None:
             parameters = []
@@ -21,12 +21,13 @@ class API(object):
             cursor = connection.cursor()
             result = cursor.execute(query, parameters)
             connection.commit()
-        return result
+        return result.fetchall()
     
     def exists(self, deck: str) -> bool:
+        """Checks whether a deck name exists in the database. Returns False if not."""
         query = "SELECT 1 FROM deck_lookup WHERE deck_name == (?)"
         parameters = (deck,)
-        if self.query(query, parameters).fetchone():
+        if self.query(query, parameters):
             return True
         return False
     
@@ -60,6 +61,8 @@ class API(object):
         return makedirs(cls.__dir__, exist_ok=True)
     
     def __enter_deck__(self, deck: str):
+        """To be used only inside the add window.
+        Creates a deck with the default value shown on the dropdown menu (Empty Deck)"""
         deck.title()
         query = "INSERT INTO deck_lookup(deck_name) VALUES (?)"
         parameters = (deck,)
