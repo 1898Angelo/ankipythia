@@ -17,7 +17,7 @@ class TopFrame(CTkFrame, API):
                  text="Deck: ").place(relx=0.18, rely=0.5, anchor="w")
         self.configuration = CTkButton(self, height=20, width=10, text=" "*3,
                                        border_color="black", border_width=2,
-                                       command=self.__menu__)
+                                       command=self._menu_window)
         self.dropdown = CTkOptionMenu(self, height=20, width=140,
                                     variable=self.initial_value,
                                     command=self.on_dropdown_change,
@@ -35,7 +35,7 @@ class TopFrame(CTkFrame, API):
         self.turn.place(relx=0.94, rely=0.51, anchor="e")
         self.configuration.place(relx=0.05, rely=0.51, anchor="w")
     
-    def __menu__(self):
+    def _menu_window(self):
         if self.window is None or not self.window.winfo_exists():
             self.window = ConfigurationMenu(self.master)
             return

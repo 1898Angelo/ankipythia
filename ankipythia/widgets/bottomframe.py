@@ -10,9 +10,9 @@ class BottomFrame(CTkFrame):
 
         # Widgets
         self.modify = CTkButton(self, text="Modify Decks", border_color="black", 
-                                border_width=2, command=self.__decks__)
+                                border_width=2, command=self._decks_window)
         self.add = CTkButton(self, text="Add Card", border_color="black", 
-                             border_width=2, command=self.__add__)
+                             border_width=2, command=self._card_window)
 
         # Positioning
         self.add.place(relx=0.9, rely=0.5, anchor="e")
@@ -20,13 +20,13 @@ class BottomFrame(CTkFrame):
 
         self.window = None
 
-    def __decks__(self):
+    def _decks_window(self):
         if self.window is None or not self.window.winfo_exists():
             self.window = ModifyDecks(self.master)
             return
         self.window.focus()
 
-    def __add__(self):
+    def _card_window(self):
         if self.window is None or not self.window.winfo_exists():
             self.window = AddCard(self.master)
             return
