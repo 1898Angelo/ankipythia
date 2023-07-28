@@ -29,7 +29,7 @@ def init_values(self):
     self.MF.set_front_value(self.front)
 
 def refresh_dropdown(self):
-    query = "SELECT deck_name FROM deck_lookup"
+    query = "SELECT name FROM deck"
     decks = [item for tup in self.query(query) for item in tup]
 
     if not decks:
@@ -46,8 +46,8 @@ def deck_cards(self):
     query = """
     SELECT front, back
     FROM card
-    INNER JOIN deck_lookup ON card.deck_id = deck_lookup.id
-    WHERE deck_name = (?)
+    INNER JOIN deck ON card.deck_id = deck.id
+    WHERE deck.name = (?)
     """.strip()
     parameters = (self.current_deck,)
     return Generator(self.query(query, parameters))

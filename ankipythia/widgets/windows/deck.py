@@ -25,7 +25,7 @@ class TableFrame(CTkFrame, API):
 
     def enter_deck(self, deck: str):
         deck = deck.title()
-        query = "INSERT INTO deck_lookup(deck_name) VALUES (?)"
+        query = "INSERT INTO deck(name) VALUES (?)"
         parameters = (deck,)
         self.query(query, parameters)
         self.root_window.refresh_dropdown()
@@ -43,7 +43,7 @@ class TableFrame(CTkFrame, API):
             self.tree.insert("", "end", 
                              node.replace(" ", "_"), 
                              text=node, 
-                             tags=("deck_lookup", node_id, node))
+                             tags=("deck", node_id, node))
             # ... Then the items into the nodes
             decks = self.retrieve_items(node)
             for idx, (row_id, front, back) in enumerate(decks, start=1):
@@ -54,15 +54,15 @@ class TableFrame(CTkFrame, API):
                                  tags=("card", row_id, node))
 
     def retrieve_nodes(self):
-        query = "SELECT id, deck_name FROM deck_lookup"
+        query = "SELECT id, name FROM deck"
         return self.query(query)
     
     def retrieve_items(self, deck_name):
         query = """
         SELECT card.id, front, back
         FROM card
-        INNER JOIN deck_lookup ON card.deck_id = deck_lookup.id
-        WHERE deck_name = (?)
+        INNER JOIN deck ON card.deck_id = deck.id
+        WHERE deck.name = (?)
         """.strip()
         parameters = (deck_name,)
         return self.query(query, parameters)

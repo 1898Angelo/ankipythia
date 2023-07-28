@@ -25,7 +25,7 @@ class API(object):
     
     def exists(self, deck: str) -> bool:
         """Checks whether a deck name exists in the database. Returns False if not."""
-        query = "SELECT 1 FROM deck_lookup WHERE deck_name == (?)"
+        query = "SELECT 1 FROM deck WHERE name == (?)"
         parameters = (deck,)
         if self.query(query, parameters):
             return True
@@ -46,9 +46,9 @@ class API(object):
         """
 
         lookup_table = """
-        CREATE TABLE if not exists "deck_lookup" (
+        CREATE TABLE if not exists "deck" (
 	        "id"	INTEGER NOT NULL UNIQUE,
-	        "deck_name"	TEXT NOT NULL UNIQUE,
+	        "name"	TEXT NOT NULL UNIQUE,
 	    PRIMARY KEY("id" AUTOINCREMENT)
         );
         """
@@ -64,6 +64,6 @@ class API(object):
         """To be used only inside the add window.
         Creates a deck with the default value shown on the dropdown menu (Empty Deck)"""
         deck.title()
-        query = "INSERT INTO deck_lookup(deck_name) VALUES (?)"
+        query = "INSERT INTO deck(name) VALUES (?)"
         parameters = (deck,)
         return self.query(query, parameters)

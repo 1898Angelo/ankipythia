@@ -39,7 +39,7 @@ class AddCard(CTkToplevel, API):
         query = """
         INSERT INTO card(timestamp, deck_id, front, back)
         VALUES (?, 
-		(SELECT id FROM deck_lookup WHERE deck_name = (?)),
+		(SELECT id FROM deck WHERE name = (?)),
         ?, ?)
         """.strip()
         parameters = (timestamp, 
