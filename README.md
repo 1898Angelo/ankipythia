@@ -29,7 +29,7 @@ platformdirs>=2.6.2
 The database follows a very simple star schema to avoid redundancies in the database:
 - A dimension table _card_ is used to store the "front" and "back" of each card input into the program.
   - Furthermore, the table has a foreign key column _deck_id_ to relate multiple rows (cards) to each observation (deck name) in the fact table.
-- A fact table _card_lookup_ is used to store the _deck names_ related to those cards.
+- A fact table _card_ is used to store the _deck name_ of each cards deck.
 
 **DIMENSION TABLE**
 ```
@@ -45,9 +45,9 @@ CREATE TABLE "card" (
 ```
 **FACT TABLE**
 ```
-CREATE TABLE "deck_lookup" (
+CREATE TABLE "deck" (
 	"id"	INTEGER NOT NULL UNIQUE, # Primary key column referenced by card.
-	"deck_name"	TEXT NOT NULL UNIQUE, # Deck names are stored here.
+	"name"	TEXT NOT NULL UNIQUE, # Deck names are stored here.
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 ```
