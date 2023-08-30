@@ -12,6 +12,9 @@ Barebones flashcard app built on Tkinter and inspired by the official Anki app -
 
 ![Animation](https://github.com/1898Angelo/ankipythia/assets/123282394/a594b86a-a496-49e3-9dce-532fc7d5909f)
 
+# TODO:
+- Follow SOLID principles.
+- Implement statistics tracking.
 
 ## DEPENDENCIES
 ```
