@@ -14,6 +14,7 @@ Barebones flashcard app built on Tkinter and inspired by the official Anki app -
 
 # TODO:
 - Follow SOLID principles.
+- Fix the time complexity of the sorting algorithm.
 - Implement statistics tracking.
 
 ## DEPENDENCIES
