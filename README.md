@@ -12,11 +12,6 @@ Barebones flashcard app built on Tkinter and inspired by the official Anki app -
 
 ![Animation](https://github.com/1898Angelo/ankipythia/assets/123282394/a594b86a-a496-49e3-9dce-532fc7d5909f)
 
-# TODO:
-- Follow SOLID principles.
-- Fix the time complexity of the sorting algorithm.
-- Implement statistics tracking.
-
 ## DEPENDENCIES
 ```
 customtkinter>=5.1.3
@@ -86,3 +81,7 @@ C:\Users\YourUserName\AppData\Local\Ankipythia
 ```
 /home/YourUserName/.local/share/Ankipythia
 ```
+
+## TODO:
+- Follow SOLID principles.
+- Implement ratings, amount of views and sorting by rating, newest, latest, lowest views...
